@@ -1,0 +1,27 @@
+#map {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#title {
+    text-align: center;
+}
+
+.inFront {
+    position: relative;
+    z-index: 100;
+}
+
+#myLocation {
+    position: fixed;
+    bottom: 5;
+    right: 10;
+}
+
+#logo {
+    height: 100%;
+    width: 100%;
+}
