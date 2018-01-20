@@ -14,16 +14,50 @@ function initMap() {
     });
 }
 
-$('myLocation').on('click', curLocation());
 
-function curLocation() {
+//$("#myLocation").on("click", getLocation) 
+$("h4").css({'color':'blue'});
+
+function getLocation(){
+    console.log('helloo');
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function() {
-          var curLocation = {lat: position.coords.latitude, lng: position.coords.longitude};
-          location = curLocation;
-          console.log(curLocation);
-        });
+        console.log("Hi");
+        navigator.geolocation.getCurrentPosition(updateLocation);
     } else { 
-        $('myLocation').innerHTML = "Geolocation is not supported by this browser.";
+        $('#myLocation').innerHTML = "Geolocation is not supported by this browser.";
     }
+}
+
+function selectCampus(camp){
+    var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 16,
+        center: camp
+    });
+    var marker = new google.maps.Marker({
+        position: camp,
+        map: map
+    });
+}
+
+// function curLocation() {
+//     if (navigator.geolocation) {
+//         navigator.geolocation.getCurrentPosition(updateLocation);
+//     } else { 
+//         $('#myLocation').innerHTML = "Geolocation is not supported by this browser.";
+//     }
+// }
+
+function updateLocation(position) {
+    console.log("Here?");
+    var curLocation = {lat: position.coords.latitude, lng: position.coords.longitude};
+    // location = curLocation;
+    var marker = new google.maps.Marker({
+      position: location,
+      map: map
+    });
+    var marker = new google.maps.Marker({
+      position: curLocation,
+      map: map
+    });
+    console.log(curLocation);
 }

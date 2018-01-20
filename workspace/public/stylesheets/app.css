@@ -10,6 +10,11 @@
     text-align: center;
 }
 
+#logo {
+    height: 100%;
+    width: 100%;
+}
+
 .inFront {
     position: relative;
     z-index: 100;
@@ -21,7 +26,21 @@
     right: 10;
 }
 
-#logo {
-    height: 100%;
-    width: 100%;
+.navbar {
+    height: 15%;
+    background-color: white;
+    opacity: 0.8;
+}
+
+#campuses {
+    border: 2px solid color;
+}
+
+ul {
+    width: 10%;
+    height: 100px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    text-align: center;
+    display: inline-block;
 }

@@ -1,9 +1,7 @@
 var express     = require("express"),
     app         = express(),
     bodyParser  = require("body-parser"),
-    methodOverride = require("method-override"),
-    jQuery = require("jquery");
-    // ajax_request = require("ajax-request");
+    methodOverride = require("method-override");
     
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());

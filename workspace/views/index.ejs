@@ -1,21 +1,30 @@
 <% include partials/header %>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" >
+    <nav class="inFront navbar" >
     <div class="container">
       <div class="row">
-        <div class="col-1">
-         <img id="logo" class="inFront h-25 w-25" src="https://upload.wikimedia.org/wikipedia/en/thumb/0/04/Utoronto_coa.svg/1200px-Utoronto_coa.svg.png"></img>
+        <div class="col-2">
+         <img id="logo" src="https://upload.wikimedia.org/wikipedia/en/thumb/0/04/Utoronto_coa.svg/1200px-Utoronto_coa.svg.png"></img>
         </div>
         <div class="col-4">
-          <h3 class="inFront" id="title">University of Toronto Club and Events</h3>
+            <div class="row">
+              <h4 id="title">UofT Club and Events</h4>
+            </div>
+            <div class="row">
+            <span id="campuses">
+                <button class="btn" onClick="selectCampus(utm)">UTM</button>
+                <button class="btn" onClick="selectCampus(utsg)">UTSG</button>
+                <button class="btn" onClick="selectCampus(utsc)">UTSC</button>
+            </span>
+            </div>
         </div>
-        <div class="col-4"></div>
+        <div class="col-3"></div>
         <div class="col-3">
           <input class="form-control mr-sm-2 inFront" type="search" placeholder="Search" aria-label="Search">
         </div>
     </div>
     </nav>
     
-    <div class="inFront" id="myLocation">loc</div>
+    <button class="inFront" id="myLocation" onclick="getLocation()">loc</button>
     
     <ul class="inFront">
         <li>Filter</li>
