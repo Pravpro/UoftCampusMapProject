@@ -8,7 +8,7 @@ var EventSchema = new mongoose.Schema({
     attendees   : Number,
     foodPresent : Boolean,
     restrictions: Boolean,
-    foodItem    : {type: mongoose.Schema.Types.ObjectId, ref: "Food"},
+    foodItem    : [String],
     club        : {type: mongoose.Schema.Types.ObjectId, ref: "Club"}
 });
 

@@ -1,36 +1,62 @@
 <% include partials/header %>
-    <nav class="inFront navbar" >
-    <div class="container">
+    <nav class="inFront navbar">
+      <div id="container">
       <div class="row">
         <div class="col-2">
          <img id="logo" src="https://upload.wikimedia.org/wikipedia/en/thumb/0/04/Utoronto_coa.svg/1200px-Utoronto_coa.svg.png"></img>
         </div>
-        <div class="col-4">
+        <div class="col-5">
             <div class="row">
-              <h4 id="title">UofT Club and Events</h4>
+                <h2 id="title">UofT Club and Events</h2>
             </div>
             <div class="row">
-            <span id="campuses">
-                <button class="btn" onClick="selectCampus(utm)">UTM</button>
-                <button class="btn" onClick="selectCampus(utsg)">UTSG</button>
-                <button class="btn" onClick="selectCampus(utsc)">UTSC</button>
+                <div class="col-1"></div>
+                <div class="col-3">
+                    <button class="btn hovered" onClick="selectCampus(utm)">UTM</button>
+                </div>
+                <div class="col-3">
+                    <button class="btn hovered" onClick="selectCampus(utsg)">UTSG</button>
+                </div>
+                <div class="col-3">    
+                    <button class="btn hovered" onClick="selectCampus(utsc)">UTSC</button>
+                </div>
+                <div class="col-1"></div>
+            </div>
+        </div>
+        <div class="col-5">
+            <span id="campuses navbar-nav mr-auto">
+                <% if(!currentUser) { %>
+                    <a id="loginbuttons" href="/login"><button type="button" class="btn btn-info right-side-button">Login</button></a>
+                    <a href="/register"><button type="button" class="btn btn-info right-side-button">Register</button></a>
+                <% } else { %>
+                    <a class="active" href="#"><button type="button" class="btn btn-info right-side-button" disabled>Signed In As <%= currentUser.username %></button></a>
+                    <a class="active" href="/logout"><button type="button" class="btn btn-info right-side-button">Logout</button></a>
+                <% } %>
             </span>
-            </div>
         </div>
-        <div class="col-3"></div>
-        <div class="col-3">
-          <input class="form-control mr-sm-2 inFront" type="search" placeholder="Search" aria-label="Search">
-        </div>
+    </div>
     </div>
     </nav>
     
-    <button class="inFront" id="myLocation" onclick="getLocation()">loc</button>
+    <button class="inFront" id="myLocation" onclick="getLocation()"><i class="fa fa-location-arrow fa-lg" aria-hidden="true"></i></button>
     
-    <ul class="inFront">
-        <li>Filter</li>
-        <li>Free Food</li>
-        <li>Calender</li>
-    </ul>
+    <div id="tabs" class="inFront">
+        <div class="row ">
+            <div class="col-sm-3">    
+                <ul>
+                    <li class="shrink search"><i class="fa fa-search fa-lg" aria-hidden="true"></i></li>
+                    <li class="shrink"><i class="fa fa-filter fa-lg" aria-hidden="true"></i></li>
+                    <li class="shrink"><i class="fa fa-cutlery fa-lg" aria-hidden="true"></i></li>
+                    <li class="shrink"><i class="fa fa-calendar fa-lg" aria-hidden="true"></i></li>
+                    <li class="shrink"><i class="fa fa-road fa-lg" aria-hidden="true"></i></li>
+                    <li class="shrink"><i class="fa fa-cog fa-lg" aria-hidden="true"></i></li>
+                </ul>
+            </div>
+            <div class="col-sm-9">    
+                <div class="inFront" id="content"></div>
+            </div>
+        </div>
+    </div>
     
     <div id="map"></div>
     

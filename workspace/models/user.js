@@ -5,7 +5,7 @@ var UserSchema = new mongoose.Schema({
     username    : String,
     password    : String,
     isExec      : Boolean,
-    isExecOfClub: {type: mongoose.Schema.Types.ObjectId, ref: "Event"},
+    isExecOfClub: {type: mongoose.Schema.Types.ObjectId, ref: "Club"},
     events:
     [
         {
