@@ -4,7 +4,7 @@ var EventSchema = new mongoose.Schema({
     name        : String,
     time        : Date,
     tags        : [String],
-    location    : String,
+    location    : [Number],
     attendees   : Number,
     foodPresent : Boolean,
     restrictions: Boolean,

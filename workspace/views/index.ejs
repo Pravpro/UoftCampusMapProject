@@ -31,6 +31,9 @@
                 <% } else { %>
                     <a class="active" href="#"><button type="button" class="btn btn-info right-side-button" disabled>Signed In As <%= currentUser.username %></button></a>
                     <a class="active" href="/logout"><button type="button" class="btn btn-info right-side-button">Logout</button></a>
+                    <%if(currentUser.isExec){%>
+                        <a class="active" href="/new"><button type="button" class="btn btn-info right-side-button">New Event</button></a>
+                    <% } %>
                 <% } %>
             </span>
         </div>
@@ -46,7 +49,7 @@
                 <ul>
                     <li class="shrink search"><i class="fa fa-search fa-lg" aria-hidden="true"></i></li>
                     <li class="shrink"><i class="fa fa-filter fa-lg" aria-hidden="true"></i></li>
-                    <li class="shrink"><i class="fa fa-cutlery fa-lg" aria-hidden="true"></i></li>
+                    <li class="shrink food"><i class="fa fa-cutlery fa-lg" aria-hidden="true"></i></li>
                     <li class="shrink"><i class="fa fa-calendar fa-lg" aria-hidden="true"></i></li>
                     <li class="shrink"><i class="fa fa-road fa-lg" aria-hidden="true"></i></li>
                     <li class="shrink"><i class="fa fa-cog fa-lg" aria-hidden="true"></i></li>
@@ -59,7 +62,7 @@
     </div>
     
     <div id="map"></div>
-    
+    <button class="inFront btn btn-info" id="eventsBtn" onClick="displayEvents();">Show Events</button>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQQBTVVykxK9kVEF17yYpHr009tCEUi8g&callback=initMap">
     </script>

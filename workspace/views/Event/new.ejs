@@ -14,7 +14,11 @@
                         <input class="form-control" type="text" name="location" placeholder="Location">
                     </div>
                     <div class="form-group">
-                        <input class="form-control" type="text" name="clubname" placeholder="Club">
+                        <select class="form-control"  name="clubname" placeholder="Club"> 
+                                <option selected>Select a Club</option>
+                               <option> <% currentUser.name %> </option>
+                
+                        </select>
                     </div>
                     <div class="form-group">
                         <input class="form-control" type="text" name="tags" placeholder="Keywords">
