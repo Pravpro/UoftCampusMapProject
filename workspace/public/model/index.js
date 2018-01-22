@@ -84,16 +84,17 @@ function updateLocation(position) {
     console.log(curLocation);
 }
 
-$("li").hover(function(){
+$(".tab").hover(function(){
     $(this).removeClass("shrink");
 }, function(){
     $(this).addClass("shrink");
 });
 
-$("li").click(function(){
+$(".tab").click(function(){
     $("#tabs").toggleClass("expand");
     if($("#tabs").hasClass("expand")) {
         if($(this).hasClass("search")){
+            $("#content").show();
             $('#content').html('<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">');
         } else if($(this).hasClass("food")) {
             
@@ -109,18 +110,19 @@ function createMarker(lat, lng, data){
     var marker = new google.maps.Marker({
         map: curMap,
       animation: google.maps.Animation.DROP,
-        position: eventLoc
+        position: eventLoc,
+       // icon: "https://uofthacks.com/static/img/title.png"
     });
     marker.setMap(curMap);
     var contentString = '<div class="container" onclick="myFunction()">' +
                         '<div class="jumbotron">' + 
                             '<div class="row">' + 
-                                '<div class="col-6">' +
+                                '<div class="col-3">' +
                                   
-                                '<img class="img-thumbnail" src="https://focus.library.utoronto.ca/attachments/0000/1570/U-of-T-logo.gif?1394222046">' +
+                                '<img class="w-25 h-25 img-thumbnail" src="https://focus.library.utoronto.ca/attachments/0000/1570/U-of-T-logo.gif?1394222046">' +
                                   
                                 '</div>' +
-                                '<div class="col-6">' +
+                                '<div class="col-9">' +
                                     
                                     '<h2>Event Name: '+data.name+'</h2>' +
                                     '<h3>Club Name: '+data.club+'</h3>' +

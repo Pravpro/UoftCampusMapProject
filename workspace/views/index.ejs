@@ -1,63 +1,101 @@
 <% include partials/header %>
-    <nav class="inFront navbar">
-      <div id="container">
-      <div class="row">
-        <div class="col-2">
-         <img id="logo" src="https://upload.wikimedia.org/wikipedia/en/thumb/0/04/Utoronto_coa.svg/1200px-Utoronto_coa.svg.png"></img>
-        </div>
-        <div class="col-5">
-            <div class="row">
-                <h2 id="title">UofT Club and Events</h2>
-            </div>
-            <div class="row">
-                <div class="col-1"></div>
-                <div class="col-3">
-                    <button class="btn hovered" onClick="selectCampus(utm)">UTM</button>
-                </div>
-                <div class="col-3">
-                    <button class="btn hovered" onClick="selectCampus(utsg)">UTSG</button>
-                </div>
-                <div class="col-3">    
-                    <button class="btn hovered" onClick="selectCampus(utsc)">UTSC</button>
-                </div>
-                <div class="col-1"></div>
-            </div>
-        </div>
-        <div class="col-5">
-            <span id="campuses navbar-nav mr-auto">
-                <% if(!currentUser) { %>
-                    <a id="loginbuttons" href="/login"><button type="button" class="btn btn-info right-side-button">Login</button></a>
-                    <a href="/register"><button type="button" class="btn btn-info right-side-button">Register</button></a>
-                <% } else { %>
-                    <a class="active" href="#"><button type="button" class="btn btn-info right-side-button" disabled>Signed In As <%= currentUser.username %></button></a>
-                    <a class="active" href="/logout"><button type="button" class="btn btn-info right-side-button">Logout</button></a>
-                    <%if(currentUser.isExec){%>
-                        <a class="active" href="/new"><button type="button" class="btn btn-info right-side-button">New Event</button></a>
-                    <% } %>
-                <% } %>
-            </span>
-        </div>
-    </div>
-    </div>
-    </nav>
+    <!--<nav class="inFront navbar">-->
+    <!--  <div id="container">-->
+    <!--  <div class="row">-->
+    <!--    <div class="col-2">-->
+    <!--     <img id="logo" src="https://upload.wikimedia.org/wikipedia/en/thumb/0/04/Utoronto_coa.svg/1200px-Utoronto_coa.svg.png"></img>-->
+    <!--    </div>-->
+    <!--    <div class="col-5">-->
+    <!--        <div class="row">-->
+    <!--            <h2 id="title">UofT Club and Events</h2>-->
+    <!--        </div>-->
+    <!--        <div class="row">-->
+    <!--            <div class="col-1"></div>-->
+    <!--            <div class="col-3">-->
+    <!--                <button class="btn hovered" onClick="selectCampus(utm)">UTM</button>-->
+    <!--            </div>-->
+    <!--            <div class="col-3">-->
+    <!--                <button class="btn hovered" onClick="selectCampus(utsg)">UTSG</button>-->
+    <!--            </div>-->
+    <!--            <div class="col-3">    -->
+    <!--                <button class="btn hovered" onClick="selectCampus(utsc)">UTSC</button>-->
+    <!--            </div>-->
+    <!--            <div class="col-1"></div>-->
+    <!--        </div>-->
+    <!--    </div>-->
+    <!--    <div class="col-5">-->
+    <!--        <span id="campuses navbar-nav mr-auto">-->
+    <!--            <% if(!currentUser) { %>-->
+    <!--                <a id="loginbuttons" href="/login"><button type="button" class="btn btn-info right-side-button">Login</button></a>-->
+    <!--                <a href="/register"><button type="button" class="btn btn-info right-side-button">Register</button></a>-->
+    <!--            <% } else { %>-->
+    <!--                <a class="active" href="#"><button type="button" class="btn btn-info right-side-button" disabled>Signed In As <%= currentUser.username %></button></a>-->
+    <!--                <a class="active" href="/logout"><button type="button" class="btn btn-info right-side-button">Logout</button></a>-->
+    <!--                <a class="active" href="/new"><button type="button" class="btn btn-info right-side-button">New Event</button></a>-->
+    <!--                <%if(currentUser.isExec){%>-->
+    <!--                    <a class="active" href="/new"><button type="button" class="btn btn-info right-side-button">New Event</button></a>-->
+    <!--                <% } %>-->
+    <!--            <% } %>-->
+    <!--        </span>-->
+    <!--    </div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</nav>-->
+
+    <nav class="inFront navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#">
+            <img id="logo" src="https://upload.wikimedia.org/wikipedia/en/thumb/0/04/Utoronto_coa.svg/1200px-Utoronto_coa.svg.png"></img>
+            UofT Clubs and Events
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
     
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Campus
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#" onClick="selectCampus(utm)">UTM</a>
+                        <a class="dropdown-item" href="#" onClick="selectCampus(utsg)">UTSG</a>
+                        <!--<div class="dropdown-divider"></div>-->
+                        <a class="dropdown-item" href="#" onClick="selectCampus(utsc)">UTSC</a>
+                    </div>
+                </li>
+            </ul>
+            <div id="navbar-nav mr-auto">
+            <% if(!currentUser) { %>
+                <a id="loginbuttons" href="/login"><button type="button" class="btn btn-info ">Login</button></a>
+                <a href="/register"><button type="button" class="btn btn-info">Register</button></a>
+            <% } else { %>
+                <a class="active" href="#"><button type="button" class="btn btn-info right-side-button" disabled>Signed In As <%= currentUser.username %></button></a>
+                <a class="active" href="/logout"><button type="button" class="btn btn-info right-side-button">Logout</button></a>
+                <a class="active" href="/new"><button type="button" class="btn btn-info right-side-button">New Event</button></a>
+                <%if(currentUser.isExec){%>
+                    <a class="active" href="/new"><button type="button" class="btn btn-info right-side-button">New Event</button></a>
+                <% } %>
+            <% } %>
+            </div>
+        </div>
+    </nav>    
+
     <button class="inFront" id="myLocation" onclick="getLocation()"><i class="fa fa-location-arrow fa-lg" aria-hidden="true"></i></button>
     
     <div id="tabs" class="inFront">
-        <div class="row ">
-            <div class="col-sm-3">    
-                <ul>
-                    <li class="shrink search"><i class="fa fa-search fa-lg" aria-hidden="true"></i></li>
-                    <li class="shrink"><i class="fa fa-filter fa-lg" aria-hidden="true"></i></li>
-                    <li class="shrink food"><i class="fa fa-cutlery fa-lg" aria-hidden="true"></i></li>
-                    <li class="shrink"><i class="fa fa-calendar fa-lg" aria-hidden="true"></i></li>
-                    <li class="shrink"><i class="fa fa-road fa-lg" aria-hidden="true"></i></li>
-                    <li class="shrink"><i class="fa fa-cog fa-lg" aria-hidden="true"></i></li>
+        <!--<div class="row">-->
+            <!--<div class="">    -->
+                <ul id="sidebar">
+                    <li class="tab shrink search"><i class="fa fa-search fa-lg" aria-hidden="true"></i></li>
+                    <li class="tab shrink"><i class="fa fa-filter fa-lg" aria-hidden="true"></i></li>
+                    <li class="tab shrink food"><i class="fa fa-cutlery fa-lg" aria-hidden="true"></i></li>
+                    <li class="tab shrink"><i class="fa fa-calendar fa-lg" aria-hidden="true"></i></li>
+                    <li class="tab shrink"><i class="fa fa-road fa-lg" aria-hidden="true"></i></li>
+                    <li class="tab shrink"><i class="fa fa-cog fa-lg" aria-hidden="true"></i></li>
                 </ul>
-            </div>
-            <div class="col-sm-9">    
-                <div class="inFront" id="content"></div>
-            </div>
+            <!--</div>-->
+                <div id="content"></div>
         </div>
     </div>
     
