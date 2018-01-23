@@ -3,7 +3,7 @@
 </div>
 
 # UoftCampusMapProject
-A fully deployed website built using node js, express and mongodb. A RESTful api built for University of Toronto student union and our fellow blues to help them make their way across cmapus easier.
+A fully deployed website built using node js, express and mongodb. A RESTful api built for University of Toronto student union and our fellow blues to help them make their way across campus easier.
 
 ## Additional Information
 Built as a project during UofT hacks 5.
